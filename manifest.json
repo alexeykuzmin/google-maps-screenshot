@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+
+  "name": "Google Maps screenshot",
+  "description": "Takes screenshot of a Google Maps page without redundant UI elements.",
+  "version": "1.0",
+
+  "permissions": [
+    "activeTab",
+    "declarativeContent",
+
+    "*://www.google.com/maps/*",
+    "*://www.google.ru/maps/*"
+  ],
+
+  "page_action": {
+    "default_title": "Take Google Maps screenshot"
+  },
+
+  "background": {
+    "scripts": ["chromise.js", "background_page.js"],
+    "persistent": false
+  }
+}
