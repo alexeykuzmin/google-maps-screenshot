@@ -30,9 +30,18 @@ chrome.pageAction.onClicked.addListener(function() {
       .then(function(dataUrl) {
         // Elements should be restored before opening a new tab.
         restorePageElements();
-        return openTab(dataUrl);
+        return showImage(dataUrl);
       });
 });
+
+/**
+ * @param {string} dataUrl
+ * @return {!Promise}
+ */
+function showImage(dataUrl) {
+  window.localStorage.setItem('imageData', dataUrl);
+  return openTab('/image.html');
+}
 
 /**
  * @param {string} url
